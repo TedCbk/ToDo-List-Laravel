@@ -6,9 +6,9 @@
 <h1>Create Todo</h1>
 {{-- Cannot use only the TodosController@store --}}
 {!! Form::open(['action' => 'App\Http\Controllers\TodosController@store', 'method' => 'POST']) !!}
-    {{ Form::bsText('Your TaskName') }}
-    {{ Form::bsTextArea('Your Task') }}
-    {{ Form::bsText('Due') }}
+    {{ Form::bsText('Task') }}
+    {{ Form::bsTextArea('Description') }}
+    {{ Form::bsText('Date') }}
     {{ Form::bsSubmit('Submit', ['class' => 'btn btn-primary']) }}
 {!! Form::close() !!}    
 </div>

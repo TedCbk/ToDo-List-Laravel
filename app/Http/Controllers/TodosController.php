@@ -38,7 +38,22 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the form submittion requiring a text value
+        $this->validate($request, [
+            'Task' => 'required',
+            'Description' => 'required',
+            'Date' => 'required'
+            ]);
+
+        // Create a Todo
+        $todo = new Todo;
+        $todo->text = $request->input('Task');
+        $todo->body = $request->input('Description');
+        $todo->due = $request->input('Date');
+
+        $todo->save();
+
+        return redirect('/')->with('success', 'Todo Created');
     }
 
     /**
